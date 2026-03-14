@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventario</title>
+</head>
+<body>
+
+<h1>Lista de productos</h1>
+
+<a href="/nuevo/">Crear nuevo producto</a>
+
+<ul>
+    {% for product in products %}
+    <li>
+        <strong>{{ product.name }}</strong>
+        - Stock: {{ product.stock }}
+        - Categoría: {{ product.category }}
+    
+        <a href="/editar/{{ product.id }}/">Editar</a>
+        <a href="/borrar/{{ product.id }}/">Borrar</a>
+    </li>
+    {% empty %}
+        <li>No hay productos todavía</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
